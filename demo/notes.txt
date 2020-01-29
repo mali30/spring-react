@@ -1,0 +1,43 @@
+Architecture
+------------
+API Layer/ Controller Layer
+GET,PUT,POST
+
+Business Logic
+Service Layer
+
+Data Access Layer
+Database
+
+
+
+PersonDAO - interface where we define operations for Person class
+You can either use @Component or @Repository
+
+@Component annotation marks a java class as a bean so the component-scanning mechanism
+can pick it up and pull it into the application context.
+
+As @Repository serves as a specialization of @Component, it also enable annotated classes
+to be discovered and registered with application context.
+
+Instantiates classes as beans so they can be used.
+
+JSONProperty - We can add the @JsonProperty annotation to indicate the property name in JSON.
+
+
+Simply put, the @RequestBody annotation maps the HttpRequest body to a transfer or
+ domain object, enabling automatic deserialization of the inbound HttpRequest body onto a
+ Java object.
+
+ @PostMapping("/request")
+ public ResponseEntity postController(
+   @RequestBody LoginForm loginForm) {
+
+     exampleService.fakeAuthenticate(loginForm);
+     return ResponseEntity.ok(HttpStatus.OK);
+ }
+
+ Enforcing Annotations
+ @NotBlank
+ @Valid
+ @NotNull
